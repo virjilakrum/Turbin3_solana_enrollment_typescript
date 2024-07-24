@@ -12,7 +12,7 @@ const provider = new AnchorProvider(connection, new Wallet(keypair), {
 
 const program = new Program<WbaPrereq>(
   IDL,
-  new PublicKey("WBA52hW35HZU5R2swG57oehbN2fTr7nNhNDgfjnqUoZ"),
+  new PublicKey(IDL.address),
   provider,
 );
 
