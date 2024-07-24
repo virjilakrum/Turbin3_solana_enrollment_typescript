@@ -19,7 +19,7 @@ export type WbaPrereq = {
     }>;
     args: Array<{
       name: string;
-      type: string;
+      type: { defined: string };
     }>;
   }>;
   accounts: Array<{
@@ -37,17 +37,17 @@ export type WbaPrereq = {
       kind: string;
       fields: Array<{
         name: string;
-        type: string;
+        type: { defined: string };
       }>;
     };
   }>;
-  address: string; // Added address
+  address: string;
   metadata: {
     name: string;
     version: string;
     spec: string;
     description: string;
-  }; // Added metadata
+  };
 };
 
 export const IDL: WbaPrereq = {
@@ -94,7 +94,7 @@ export const IDL: WbaPrereq = {
       args: [
         {
           name: "github",
-          type: "bytes",
+          type: { defined: "bytes" },
         },
       ],
     },
@@ -119,7 +119,7 @@ export const IDL: WbaPrereq = {
       args: [
         {
           name: "github",
-          type: "bytes",
+          type: { defined: "bytes" },
         },
       ],
     },
@@ -145,11 +145,11 @@ export const IDL: WbaPrereq = {
         fields: [
           {
             name: "github",
-            type: "bytes",
+            type: { defined: "bytes" },
           },
           {
             name: "key",
-            type: "pubkey",
+            type: { defined: "pubkey" },
           },
         ],
       },
