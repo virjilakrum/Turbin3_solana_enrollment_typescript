@@ -6,11 +6,9 @@ const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 
 (async () => {
   try {
-    // Cüzdanın bakiyesini kontrol et
     const balance = await connection.getBalance(keypair.publicKey);
     console.log(`Cüzdan Bakiyesi: ${balance / LAMPORTS_PER_SOL} SOL`);
 
-    // Airdrop isteği gönder
     const txhash = await connection.requestAirdrop(
       keypair.publicKey,
       2 * LAMPORTS_PER_SOL,
