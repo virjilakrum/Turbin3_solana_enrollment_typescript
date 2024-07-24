@@ -5,12 +5,16 @@ import wallet from "./dev-wallet.json";
 
 const keypair = Keypair.fromSecretKey(new Uint8Array(wallet));
 const connection = new Connection("https://api.devnet.solana.com");
-const github = Buffer.from("<github kullanıcı adınızı buraya yazın>", "utf8");
+const github = Buffer.from("<virjilakrum>", "utf8");
 const provider = new AnchorProvider(connection, new Wallet(keypair), {
   commitment: "confirmed",
 });
 
-const program: Program<WbaPrereq> = new Program(IDL, provider);
+const program = new Program<WbaPrereq>(
+  IDL,
+  new PublicKey("WBA52hW35HZU5R2swG57oehbN2fTr7nNhNDgfjnqUoZ"),
+  provider,
+);
 
 const enrollment_seeds = [Buffer.from("prereq"), keypair.publicKey.toBuffer()];
 const [enrollment_key, _bump] = PublicKey.findProgramAddressSync(
@@ -24,6 +28,8 @@ const [enrollment_key, _bump] = PublicKey.findProgramAddressSync(
       .complete(github)
       .accounts({
         signer: keypair.publicKey,
+        prereq: enrollment_key,
+        systemProgram: PublicKey.default,
       })
       .signers([keypair])
       .rpc();
