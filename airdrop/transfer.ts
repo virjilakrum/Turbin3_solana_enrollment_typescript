@@ -10,7 +10,7 @@ import {
 import wallet from "./dev-wallet.json";
 
 const from = Keypair.fromSecretKey(new Uint8Array(wallet));
-const to = new PublicKey("İkinci cüzdanın public key'ini buraya yazın");
+const to = new PublicKey("4iyk8yHD3d2Uh48riqhzyrCjuJbUPVh3FqP6D5RQ9MP3");
 
 const connection = new Connection("https://api.devnet.solana.com");
 
