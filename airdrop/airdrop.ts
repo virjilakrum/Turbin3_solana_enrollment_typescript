@@ -7,13 +7,13 @@ const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 (async () => {
   try {
     const balance = await connection.getBalance(keypair.publicKey);
-    console.log(`Cüzdan Bakiyesi: ${balance / LAMPORTS_PER_SOL} SOL`);
+    console.log(`Wallet Balance: ${balance / LAMPORTS_PER_SOL} SOL`);
 
     const txhash = await connection.requestAirdrop(
       keypair.publicKey,
       2 * LAMPORTS_PER_SOL,
     );
-    console.log(`Başarılı! İşlemi buradan kontrol edebilirsiniz:
+    console.log(`Success! Check out your TX here:
         https://explorer.solana.com/tx/${txhash}?cluster=devnet`);
   } catch (e) {
     console.error(`Hata oluştu: ${e}`);

@@ -31,7 +31,7 @@ const connection = new Connection("https://api.devnet.solana.com");
     const signature = await sendAndConfirmTransaction(connection, transaction, [
       from,
     ]);
-    console.log(`Başarılı! İşlemi buradan kontrol edebilirsiniz:
+    console.log(`Success! Check out your TX here:
         https://explorer.solana.com/tx/${signature}?cluster=devnet`);
   } catch (e) {
     console.error(`Hata oluştu: ${e}`);
