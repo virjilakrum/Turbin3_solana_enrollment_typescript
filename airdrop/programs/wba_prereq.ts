@@ -41,11 +41,25 @@ export type WbaPrereq = {
       }>;
     };
   }>;
+  address: string; // Added address
+  metadata: {
+    name: string;
+    version: string;
+    spec: string;
+    description: string;
+  }; // Added metadata
 };
 
 export const IDL: WbaPrereq = {
   version: "0.1.0",
   name: "wba_prereq",
+  address: "WBA52hW35HZU5R2swG57oehbN2fTr7nNhNDgfjnqUoZ",
+  metadata: {
+    name: "wba_prereq",
+    version: "0.1.0",
+    spec: "0.1.0",
+    description: "Created with Anchor",
+  },
   instructions: [
     {
       name: "complete",
