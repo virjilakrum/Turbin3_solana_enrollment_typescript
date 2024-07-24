@@ -10,8 +10,10 @@
     "enroll": "ts-node ./enroll.ts"
   },
   "dependencies": {
+    "@coral-xyz/anchor": "0.30.0",
     "@solana/web3.js": "^1.75.0",
     "@types/node": "^18.15.11",
+    "rpc-websockets": "7.11.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
